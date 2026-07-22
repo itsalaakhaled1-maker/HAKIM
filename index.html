@@ -570,27 +570,28 @@ html.lenis, html.lenis body { height: auto; }
   box-shadow: 0 40px 80px rgba(12, 73, 56, 0.15);
 }
 .product-card-header {
-  height: 220px;
+  height: 280px;
   position: relative;
   overflow: hidden;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 .product-card-header.mufkir { background: linear-gradient(135deg, var(--mufkir), #5a5299); }
 .product-card-header.rahhal { background: linear-gradient(135deg, var(--rahhal), #3d8ab0); }
 .product-card-header.buky { background: linear-gradient(135deg, var(--buky), #c96a4f); }
 .product-preview-iframe {
-  width: 90%;
-  height: 85%;
+  width: 100%;
+  height: 100%;
   border: none;
   border-radius: 12px;
   background: white;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-  transform: scale(0.95);
+  transform: scale(0.6);
+  transform-origin: top center;
   transition: transform 0.4s;
+  pointer-events: none;
 }
-.product-card:hover .product-preview-iframe { transform: scale(1); }
+.product-card:hover .product-preview-iframe { transform: scale(0.65); }
 .product-card-header::after {
   content: '';
   position: absolute;
@@ -700,6 +701,7 @@ html.lenis, html.lenis body { height: auto; }
   transform: perspective(1000px) rotateY(-3deg) rotateX(2deg);
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   border: 1px solid rgba(0,0,0,0.08);
+  height: 420px;
 }
 .preview-browser:hover {
   transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
@@ -736,9 +738,12 @@ html.lenis, html.lenis body { height: auto; }
 }
 .preview-browser iframe {
   width: 100%;
-  height: 350px;
+  height: 500px;
   border: none;
   display: block;
+  transform: scale(0.55);
+  transform-origin: top center;
+  margin-bottom: -225px;
 }
 .preview-content .section-label { margin-bottom: 1.5rem; }
 .preview-stats {
@@ -767,11 +772,11 @@ html.lenis, html.lenis body { height: auto; }
   margin-top: 0.4rem;
 }
 
-/* ========== ROADMAP ========== */
+/* ========== ROADMAP COMPACT CARDS ========== */
 .roadmap {
   background: var(--deep-forest);
   color: var(--warm-ivory);
-  padding: 10rem 2rem;
+  padding: 6rem 2rem;
   position: relative;
   overflow: hidden;
 }
@@ -781,114 +786,112 @@ html.lenis, html.lenis body { height: auto; }
   top: 0;
   left: 0;
   right: 0;
-  height: 120px;
+  height: 80px;
   background: linear-gradient(to bottom, var(--warm-ivory), transparent);
 }
 .roadmap-header {
   max-width: 1200px;
-  margin: 0 auto 5rem;
+  margin: 0 auto 3rem;
   text-align: center;
   position: relative;
   z-index: 2;
 }
 .roadmap-header .section-title { color: var(--warm-ivory); }
 .roadmap-header .section-desc { color: var(--warm-ivory); opacity: 0.7; margin: 0 auto; }
-.roadmap-timeline {
-  max-width: 1000px;
+.roadmap-cards {
+  max-width: 1200px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
   position: relative;
   z-index: 2;
 }
-.roadmap-line {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 50%;
-  width: 2px;
-  background: linear-gradient(to bottom, var(--heritage-gold), rgba(201, 148, 77, 0.15));
-  transform: translateX(50%);
+@media (max-width: 900px) {
+  .roadmap-cards { grid-template-columns: 1fr; }
 }
-.roadmap-item {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  margin-bottom: 5rem;
-  position: relative;
-  align-items: start;
-}
-.roadmap-item:nth-child(even) .roadmap-content { grid-column: 1; }
-.roadmap-item:nth-child(even) .roadmap-spacer { grid-column: 2; }
-.roadmap-dot {
-  position: absolute;
-  right: 50%;
-  top: 10px;
-  transform: translateX(50%);
-  width: 18px;
-  height: 18px;
-  background: var(--heritage-gold);
-  border-radius: 50%;
-  border: 4px solid var(--deep-forest);
-  z-index: 3;
-  transition: all 0.4s;
-}
-.roadmap-dot.active {
-  background: var(--warm-ivory);
-  box-shadow: 0 0 25px rgba(253, 247, 233, 0.5), 0 0 50px rgba(201, 148, 77, 0.2);
-  animation: dotPulse 2s infinite;
-}
-@keyframes dotPulse {
-  0%, 100% { box-shadow: 0 0 25px rgba(253, 247, 233, 0.5), 0 0 50px rgba(201, 148, 77, 0.2); }
-  50% { box-shadow: 0 0 35px rgba(253, 247, 233, 0.7), 0 0 70px rgba(201, 148, 77, 0.3); }
-}
-.roadmap-content {
+.roadmap-card {
   background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 24px;
-  padding: 2.5rem;
-  transition: all 0.4s;
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
 }
-.roadmap-content:hover {
+.roadmap-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--heritage-gold), var(--evergreen));
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.roadmap-card:hover::before { transform: scaleX(1); }
+.roadmap-card:hover {
   background: rgba(255, 255, 255, 0.07);
   border-color: rgba(201, 148, 77, 0.2);
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }
-.roadmap-phase {
+.roadmap-card-phase {
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 2px;
   color: var(--heritage-gold);
   margin-bottom: 0.8rem;
 }
-.roadmap-title {
-  font-size: 1.6rem;
+.roadmap-card-title {
+  font-size: 1.3rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   color: var(--warm-ivory);
 }
-.roadmap-desc {
-  font-size: 0.9rem;
-  opacity: 0.65;
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
+.roadmap-card-desc {
+  font-size: 0.85rem;
+  opacity: 0.6;
+  line-height: 1.7;
+  margin-bottom: 1rem;
 }
-.roadmap-features {
+.roadmap-card-features {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
 }
-.roadmap-features li {
-  font-size: 0.85rem;
-  opacity: 0.6;
+.roadmap-card-features li {
+  font-size: 0.8rem;
+  opacity: 0.55;
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.5rem;
 }
-.roadmap-features li::before {
+.roadmap-card-features li::before {
   content: '→';
   color: var(--heritage-gold);
   font-weight: 700;
+  font-size: 0.7rem;
+}
+.roadmap-card-status {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.roadmap-card-status.active {
+  background: rgba(201, 148, 77, 0.2);
+  color: var(--heritage-gold);
+}
+.roadmap-card-status:not(.active) {
+  background: rgba(255,255,255,0.05);
+  color: rgba(253, 247, 233, 0.5);
 }
 
 /* ========== VISION DETAIL SECTION ========== */
@@ -1274,6 +1277,350 @@ body:hover .cursor-glow { opacity: 1; }
   font-weight: 500;
 }
 
+
+/* ========== STATIC SCREENSHOTS (replacing broken iframes) ========== */
+.product-screenshot {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  font-family: 'IBM Plex Sans Arabic', sans-serif;
+}
+.product-screenshot.mufkir-shot {
+  background: linear-gradient(135deg, #403B78 0%, #5a5299 50%, #403B78 100%);
+}
+.product-screenshot.rahhal-shot {
+  background: linear-gradient(135deg, #2C6C8A 0%, #3d8ab0 50%, #2C6C8A 100%);
+}
+.product-screenshot.buky-shot {
+  background: linear-gradient(135deg, #A84D36 0%, #c96a4f 50%, #A84D36 100%);
+}
+
+/* Screenshot Header */
+.shot-header {
+  padding: 1rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.shot-logo {
+  width: 28px;
+  height: 28px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  color: white;
+  font-weight: 700;
+}
+.shot-title {
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.shot-subtitle {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.55rem;
+  margin-right: auto;
+}
+
+/* Screenshot Hero */
+.shot-hero {
+  padding: 1.5rem 1.2rem;
+  text-align: center;
+}
+.shot-hero h3 {
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  line-height: 1.4;
+}
+.shot-hero p {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.6rem;
+  line-height: 1.6;
+}
+
+/* Screenshot Form */
+.shot-form {
+  padding: 0 1.2rem 1rem;
+}
+.shot-field {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  padding: 0.5rem 0.7rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.shot-field label {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.5rem;
+  font-weight: 600;
+}
+.shot-field input {
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.3);
+  font-size: 0.6rem;
+  font-family: inherit;
+  outline: none;
+}
+
+/* Screenshot Features */
+.shot-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.4rem;
+  padding: 0 1.2rem 1rem;
+}
+.shot-feature {
+  background: rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 0.5rem 0.3rem;
+  text-align: center;
+}
+.shot-feature-num {
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: block;
+}
+.shot-feature-text {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.45rem;
+  line-height: 1.4;
+}
+
+/* Screenshot Travel Form */
+.shot-travel-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem;
+  padding: 0 1.2rem 1rem;
+}
+.shot-travel-field {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+}
+.shot-travel-field label {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.45rem;
+  font-weight: 600;
+  display: block;
+}
+.shot-travel-field .value {
+  color: rgba(255,255,255,0.3);
+  font-size: 0.55rem;
+}
+
+/* Screenshot Travel Features */
+.shot-travel-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0 1.2rem;
+}
+.shot-travel-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255,255,255,0.06);
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+}
+.shot-travel-icon {
+  width: 20px;
+  height: 20px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.shot-travel-text {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.55rem;
+  font-weight: 600;
+}
+
+/* Preview Section Screenshots */
+.preview-screenshot {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  font-family: 'IBM Plex Sans Arabic', sans-serif;
+}
+.preview-screenshot.mufkir-preview-bg {
+  background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+}
+.preview-screenshot.rahhal-preview-bg {
+  background: linear-gradient(180deg, #f0f7fa 0%, #ffffff 100%);
+}
+
+/* Preview Header */
+.preview-shot-header {
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.preview-shot-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: white;
+  font-weight: 700;
+}
+.preview-shot-logo.mufkir-logo { background: #403B78; }
+.preview-shot-logo.rahhal-logo { background: #2C6C8A; }
+.preview-shot-title {
+  color: #1a1a1a;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+.preview-shot-subtitle {
+  color: #888;
+  font-size: 0.6rem;
+  margin-right: auto;
+}
+
+/* Preview Hero */
+.preview-shot-hero {
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+.preview-shot-hero h2 {
+  color: #1a1a1a;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.preview-shot-hero p {
+  color: #666;
+  font-size: 0.7rem;
+  line-height: 1.6;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+/* Preview Content */
+.preview-shot-content {
+  padding: 0 1.5rem 1.5rem;
+}
+.preview-shot-card {
+  background: white;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 0.8rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.preview-shot-card h4 {
+  color: #1a1a1a;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+.preview-shot-card p {
+  color: #888;
+  font-size: 0.6rem;
+  line-height: 1.5;
+}
+.preview-shot-tags {
+  display: flex;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+.preview-shot-tag {
+  background: rgba(64, 59, 120, 0.08);
+  color: #403B78;
+  padding: 0.2rem 0.5rem;
+  border-radius: 50px;
+  font-size: 0.5rem;
+  font-weight: 600;
+}
+.preview-shot-tag.rahhal-tag {
+  background: rgba(44, 108, 138, 0.08);
+  color: #2C6C8A;
+}
+
+/* Preview Stats Row */
+.preview-shot-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.preview-shot-stat {
+  text-align: center;
+  padding: 0.6rem;
+  background: rgba(64, 59, 120, 0.03);
+  border-radius: 8px;
+}
+.preview-shot-stat.rahhal-stat {
+  background: rgba(44, 108, 138, 0.03);
+}
+.preview-shot-stat-num {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #403B78;
+  display: block;
+}
+.preview-shot-stat-num.rahhal-num {
+  color: #2C6C8A;
+}
+.preview-shot-stat-label {
+  font-size: 0.5rem;
+  color: #888;
+  margin-top: 0.2rem;
+}
+
+/* Buky Coming Soon */
+.buky-coming {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  padding: 2rem;
+}
+.buky-coming-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+.buky-coming h3 {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.buky-coming p {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.75rem;
+}
+
 </style>
 </head>
 <body>
@@ -1426,7 +1773,41 @@ body:hover .cursor-glow { opacity: 1; }
     <!-- Mufakkir -->
     <div class="product-card reveal" data-product="mufkir">
       <div class="product-card-header mufkir">
-        <iframe class="product-preview-iframe" src="https://www.mufkir.com" title="مُفكّر Preview" loading="lazy" sandbox="allow-scripts allow-same-origin"></iframe>
+    <div class="product-screenshot mufkir-shot">
+  <div class="shot-header">
+    <div class="shot-logo">م</div>
+    <div class="shot-title">مُفكّر</div>
+    <div class="shot-subtitle">نظام البحث والمقارنة المعيارية</div>
+  </div>
+  <div class="shot-hero">
+    <h3>أنشئ ورقتك البحثية للمقارنة المعيارية</h3>
+    <p>من الفكرة إلى ورقة أكاديمية جاهزة للنشر</p>
+  </div>
+  <div class="shot-form">
+    <div class="shot-field">
+      <label>عنوان المبادرة</label>
+      <input type="text" placeholder="أدخل عنوان البحث..." readonly>
+    </div>
+    <div class="shot-field">
+      <label>موضوع البحث التفصيلي</label>
+      <input type="text" placeholder="وصف موضوع البحث..." readonly>
+    </div>
+  </div>
+  <div class="shot-features">
+    <div class="shot-feature">
+      <span class="shot-feature-num">23</span>
+      <span class="shot-feature-text">مرحلة بحثية</span>
+    </div>
+    <div class="shot-feature">
+      <span class="shot-feature-num">4</span>
+      <span class="shot-feature-text">طبقات تحقق</span>
+    </div>
+    <div class="shot-feature">
+      <span class="shot-feature-num">4</span>
+      <span class="shot-feature-text">مراجعين افتراضيين</span>
+    </div>
+  </div>
+</div>
       </div>
       <div class="product-card-body">
         <span class="product-card-badge mufkir">متاح الآن</span>
@@ -1450,7 +1831,49 @@ body:hover .cursor-glow { opacity: 1; }
     <!-- Rahhal -->
     <div class="product-card reveal" data-product="rahhal">
       <div class="product-card-header rahhal">
-        <iframe class="product-preview-iframe" src="https://www.tryrahhal.com" title="الرحّال Preview" loading="lazy" sandbox="allow-scripts allow-same-origin"></iframe>
+    <div class="product-screenshot rahhal-shot">
+  <div class="shot-header">
+    <div class="shot-logo">ر</div>
+    <div class="shot-title">الرحّال</div>
+    <div class="shot-subtitle">مخطط رحلاتك الذكي</div>
+  </div>
+  <div class="shot-hero">
+    <h3>اكتشف العالم بطريقتك</h3>
+    <p>خطط رحلتك الكاملة من الطيران إلى الإقامة والميزانية</p>
+  </div>
+  <div class="shot-travel-form">
+    <div class="shot-travel-field">
+      <label>من</label>
+      <div class="value">دبي</div>
+    </div>
+    <div class="shot-travel-field">
+      <label>إلى</label>
+      <div class="value">باريس</div>
+    </div>
+    <div class="shot-travel-field">
+      <label>المغادرة</label>
+      <div class="value">2026-08-15</div>
+    </div>
+    <div class="shot-travel-field">
+      <label>المسافرين</label>
+      <div class="value">2 مسافر</div>
+    </div>
+  </div>
+  <div class="shot-travel-features">
+    <div class="shot-travel-item">
+      <div class="shot-travel-icon"></div>
+      <div class="shot-travel-text">أسعار فورية من Google Flights</div>
+    </div>
+    <div class="shot-travel-item">
+      <div class="shot-travel-icon"></div>
+      <div class="shot-travel-text">أفضل الفنادق من Booking.com</div>
+    </div>
+    <div class="shot-travel-item">
+      <div class="shot-travel-icon"></div>
+      <div class="shot-travel-text">خطط يومية مولدة بالذكاء الاصطناعي</div>
+    </div>
+  </div>
+</div>
       </div>
       <div class="product-card-body">
         <span class="product-card-badge rahhal">متاح الآن</span>
@@ -1474,7 +1897,18 @@ body:hover .cursor-glow { opacity: 1; }
     <!-- Buky -->
     <div class="product-card reveal" data-product="buky">
       <div class="product-card-header buky">
-        <div style="display:flex;align-items:center;justify-content:center;height:100%;color:rgba(255,255,255,0.3);font-size:3rem;font-weight:700;">بوكي</div>
+        <div class="product-preview-frame">
+          <div class="product-preview-frame-bar">
+            <div class="product-preview-frame-dot"></div>
+            <div class="product-preview-frame-dot"></div>
+            <div class="product-preview-frame-dot"></div>
+          </div>
+          <div class="product-preview-frame-content">
+            <div class="product-preview-frame-icon">💰</div>
+            <div class="product-preview-frame-title">بوكي</div>
+            <div class="product-preview-frame-url">قريبًا</div>
+          </div>
+        </div>
       </div>
       <div class="product-card-body">
         <span class="product-card-badge buky">قريبًا</span>
@@ -1531,7 +1965,42 @@ body:hover .cursor-glow { opacity: 1; }
         <div class="preview-browser-dot"></div>
         <div class="preview-browser-url">mufkir.com</div>
       </div>
-      <iframe src="https://www.mufkir.com" title="مُفكّر Live Preview" loading="lazy" sandbox="allow-scripts allow-same-origin"></iframe>
+      <div class="preview-screenshot mufkir-preview-bg">
+  <div class="preview-shot-header">
+    <div class="preview-shot-logo mufkir-logo">م</div>
+    <div class="preview-shot-title">مُفكّر</div>
+    <div class="preview-shot-subtitle">نظام أتمتة البحث العلمي</div>
+  </div>
+  <div class="preview-shot-hero">
+    <h2>أنشئ ورقتك البحثية للمقارنة المعيارية</h2>
+    <p>من الفكرة إلى ورقة أكاديمية جاهزة للنشر — في 23 مرحلة منظمة وموثقة، مع دعم كامل للغة العربية</p>
+  </div>
+  <div class="preview-shot-content">
+    <div class="preview-shot-card">
+      <h4>نظام أتمتة البحث العلمي</h4>
+      <p>يحوّل فكرتك البحثية إلى ورقة أكاديمية جاهزة للنشر، عبر 23 مرحلة منظمة مع دعم كامل للغة العربية و4 طبقات للتحقق من صحة المصادر.</p>
+      <div class="preview-shot-tags">
+        <span class="preview-shot-tag">IMRaD</span>
+        <span class="preview-shot-tag">مقارنة معيارية</span>
+        <span class="preview-shot-tag">مراجعين افتراضيين</span>
+      </div>
+    </div>
+    <div class="preview-shot-stats">
+      <div class="preview-shot-stat">
+        <span class="preview-shot-stat-num">23</span>
+        <span class="preview-shot-stat-label">مرحلة بحثية</span>
+      </div>
+      <div class="preview-shot-stat">
+        <span class="preview-shot-stat-num">4</span>
+        <span class="preview-shot-stat-label">طبقات تحقق</span>
+      </div>
+      <div class="preview-shot-stat">
+        <span class="preview-shot-stat-num">4</span>
+        <span class="preview-shot-stat-label">مراجعين افتراضيين</span>
+      </div>
+    </div>
+  </div>
+</div>
     </div>
   </div>
 </section>
@@ -1546,7 +2015,42 @@ body:hover .cursor-glow { opacity: 1; }
         <div class="preview-browser-dot"></div>
         <div class="preview-browser-url">tryrahhal.com</div>
       </div>
-      <iframe src="https://www.tryrahhal.com" title="الرحّال Live Preview" loading="lazy" sandbox="allow-scripts allow-same-origin"></iframe>
+      <div class="preview-screenshot rahhal-preview-bg">
+  <div class="preview-shot-header">
+    <div class="preview-shot-logo rahhal-logo">ر</div>
+    <div class="preview-shot-title">الرحّال</div>
+    <div class="preview-shot-subtitle">مخطط رحلاتك الذكي</div>
+  </div>
+  <div class="preview-shot-hero">
+    <h2>خطط رحلتك بذكاء مع الذكاء الاصطناعي</h2>
+    <p>خطط رحلتك الكاملة من الطيران إلى الإقامة والميزانية والخطة اليومية في مكان واحد</p>
+  </div>
+  <div class="preview-shot-content">
+    <div class="preview-shot-card">
+      <h4>رحلات حقيقية</h4>
+      <p>أسعار فورية من Google Flights، فنادق موثوقة من Booking.com، وخطط يومية مولدة بالذكاء الاصطناعي.</p>
+      <div class="preview-shot-tags">
+        <span class="preview-shot-tag rahhal-tag">Google Flights</span>
+        <span class="preview-shot-tag rahhal-tag">Booking.com</span>
+        <span class="preview-shot-tag rahhal-tag">ذكاء اصطناعي</span>
+      </div>
+    </div>
+    <div class="preview-shot-stats">
+      <div class="preview-shot-stat rahhal-stat">
+        <span class="preview-shot-stat-num rahhal-num">∞</span>
+        <span class="preview-shot-stat-label">وجهات</span>
+      </div>
+      <div class="preview-shot-stat rahhal-stat">
+        <span class="preview-shot-stat-num rahhal-num">AI</span>
+        <span class="preview-shot-stat-label">تخطيط ذكي</span>
+      </div>
+      <div class="preview-shot-stat rahhal-stat">
+        <span class="preview-shot-stat-num rahhal-num">$</span>
+        <span class="preview-shot-stat-label">ميزانية ذكية</span>
+      </div>
+    </div>
+  </div>
+</div>
     </div>
     <div class="preview-content reveal-left" style="direction:rtl;">
       <div class="section-label">المنتج الثاني</div>
@@ -1586,64 +2090,39 @@ body:hover .cursor-glow { opacity: 1; }
       رحلتنا تبدأ بحلول تقنية وتنتهي بمجموعة شركات متخصصة في الذكاء الاصطناعي واتخاذ القرار
     </p>
   </div>
-  <div class="roadmap-timeline">
-    <div class="roadmap-line"></div>
-
-    <div class="roadmap-item reveal">
-      <div class="roadmap-dot active"></div>
-      <div class="roadmap-spacer"></div>
-      <div class="roadmap-content">
-        <div class="roadmap-phase">المرحلة الأولى — الآن</div>
-        <h3 class="roadmap-title">Hakim Tech Solutions</h3>
-        <p class="roadmap-desc">
-          تأسيس الشركة وإطلاق منتجات صغيرة سريعة. تحقيق تدفقات نقدية وبناء الفريق والسمعة. 
-          مُفكّر والرحّال هما أولى ثمار هذه المرحلة.
-        </p>
-        <ul class="roadmap-features">
-          <li>إطلاق مُفكّر — نظام البحث العلمي</li>
-          <li>إطلاق الرحّال — مخطط الرحلات الذكي</li>
-          <li>بناء علامة HAKIM التجارية</li>
-          <li>تكوين قاعدة مستخدمين أولية</li>
-        </ul>
-      </div>
+  <div class="roadmap-cards">
+    <div class="roadmap-card reveal">
+      <div class="roadmap-card-phase">المرحلة الأولى — الآن</div>
+      <h3 class="roadmap-card-title">Hakim Tech Solutions</h3>
+      <p class="roadmap-card-desc">تأسيس الشركة وإطلاق منتجات صغيرة سريعة. تحقيق تدفقات نقدية وبناء الفريق والسمعة.</p>
+      <ul class="roadmap-card-features">
+        <li>إطلاق مُفكّر والرحّال</li>
+        <li>بناء علامة HAKIM التجارية</li>
+        <li>تكوين قاعدة مستخدمين أولية</li>
+      </ul>
+      <div class="roadmap-card-status active">نشط الآن</div>
     </div>
-
-    <div class="roadmap-item reveal">
-      <div class="roadmap-dot"></div>
-      <div class="roadmap-content">
-        <div class="roadmap-phase">المرحلة الثانية — قريبًا</div>
-        <h3 class="roadmap-title">Hakim Risk Intelligence</h3>
-        <p class="roadmap-desc">
-          منصة متخصصة في إدارة المخاطر والتحليل المالي والتنبؤ بالأسواق. 
-          دعم القرار للشركات والمؤسسات المالية.
-        </p>
-        <ul class="roadmap-features">
-          <li>منصة تحليل المخاطر المالية</li>
-          <li>نماذج تنبؤ بالأسواق بالذكاء الاصطناعي</li>
-          <li>تقارير استخباراتية للشركات</li>
-          <li>شراكات مع مؤسسات مالية</li>
-        </ul>
-      </div>
-      <div class="roadmap-spacer"></div>
+    <div class="roadmap-card reveal">
+      <div class="roadmap-card-phase">المرحلة الثانية — قريبًا</div>
+      <h3 class="roadmap-card-title">Hakim Risk Intelligence</h3>
+      <p class="roadmap-card-desc">منصة متخصصة في إدارة المخاطر والتحليل المالي والتنبؤ بالأسواق.</p>
+      <ul class="roadmap-card-features">
+        <li>تحليل المخاطر المالية</li>
+        <li>نماذج تنبؤ بالذكاء الاصطناعي</li>
+        <li>تقارير استخباراتية للشركات</li>
+      </ul>
+      <div class="roadmap-card-status">قريبًا</div>
     </div>
-
-    <div class="roadmap-item reveal">
-      <div class="roadmap-dot"></div>
-      <div class="roadmap-spacer"></div>
-      <div class="roadmap-content">
-        <div class="roadmap-phase">المرحلة الثالثة — المستقبل</div>
-        <h3 class="roadmap-title">Hakim Group</h3>
-        <p class="roadmap-desc">
-          الشركة القابضة التي تضم عدة شركات متخصصة في الذكاء الاصطناعي والبيانات والاستثمار. 
-          منظومة متكاملة لاتخاذ القرار المبني على الأدلة.
-        </p>
-        <ul class="roadmap-features">
-          <li>شركة قابضة متخصصة في الذكاء الاصطناعي</li>
-          <li>شركات فرعية في البيانات والاستثمار</li>
-          <li>منظومة منتجات مترابطة عالميًا</li>
-          <li>قيادة في مجال الذكاء الاصطناعي العربي</li>
-        </ul>
-      </div>
+    <div class="roadmap-card reveal">
+      <div class="roadmap-card-phase">المرحلة الثالثة — المستقبل</div>
+      <h3 class="roadmap-card-title">Hakim Group</h3>
+      <p class="roadmap-card-desc">الشركة القابضة التي تضم عدة شركات متخصصة في الذكاء الاصطناعي والبيانات.</p>
+      <ul class="roadmap-card-features">
+        <li>شركة قابضة في الذكاء الاصطناعي</li>
+        <li>شركات فرعية في البيانات والاستثمار</li>
+        <li>منظومة منتجات عالمية</li>
+      </ul>
+      <div class="roadmap-card-status">المستقبل</div>
     </div>
   </div>
 </section>
@@ -2104,19 +2583,20 @@ function initHeroAnimations() {
     });
   });
 
-  // Roadmap line draw
-  gsap.from('.roadmap-line', {
+    // Roadmap cards animation
+  gsap.from('.roadmap-card', {
     scrollTrigger: {
-      trigger: '.roadmap-timeline',
-      start: 'top 70%',
-      end: 'bottom 20%',
-      scrub: 1
+      trigger: '.roadmap-cards',
+      start: 'top 80%'
     },
-    scaleY: 0,
-    transformOrigin: 'top center'
+    y: 60,
+    opacity: 0,
+    duration: 0.8,
+    stagger: 0.15,
+    ease: 'power3.out'
   });
 
-  // Stats counter animation
+// Stats counter animation
   gsap.utils.toArray('.stat-number').forEach(stat => {
     const target = parseInt(stat.dataset.count);
     ScrollTrigger.create({
