@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سياسة الخصوصية — حكيم | HAKIM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --evergreen: #0C4938;
+  --deep-forest: #033D2D;
+  --warm-ivory: #FDF7E9;
+  --heritage-gold: #C9944D;
+  --charcoal: #1B2420;
+  --soft-mist: #E8EEE9;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'IBM Plex Sans Arabic', 'Manrope', sans-serif;
+  background: var(--warm-ivory);
+  color: var(--charcoal);
+  line-height: 1.9;
+  direction: rtl;
+}
+::selection { background: var(--evergreen); color: var(--warm-ivory); }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--deep-forest); }
+::-webkit-scrollbar-thumb { background: var(--heritage-gold); border-radius: 3px; }
+
+.header {
+  background: linear-gradient(135deg, var(--deep-forest), var(--evergreen));
+  padding: 4rem 2rem 3rem;
+  text-align: center;
+  color: var(--warm-ivory);
+  position: relative;
+  overflow: hidden;
+}
+.header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.02' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+.header-inner { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+.header h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+.header p { opacity: 0.6; font-size: 0.9rem; }
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--heritage-gold);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+  transition: gap 0.3s;
+}
+.back-link:hover { gap: 0.8rem; }
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 2rem 5rem;
+}
+
+.section-block {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(12, 73, 56, 0.08);
+}
+
+.section-block:last-child { border-bottom: none; }
+
+.section-block h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--evergreen);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.section-block h2::before {
+  content: '';
+  width: 4px;
+  height: 24px;
+  background: var(--heritage-gold);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.section-block p, .section-block li {
+  font-size: 0.95rem;
+  color: var(--charcoal);
+  opacity: 0.75;
+  margin-bottom: 0.8rem;
+}
+
+.section-block ul {
+  list-style: none;
+  padding-right: 1rem;
+}
+
+.section-block li {
+  position: relative;
+  padding-right: 1.2rem;
+}
+
+.section-block li::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0.7rem;
+  width: 6px;
+  height: 6px;
+  background: var(--heritage-gold);
+  border-radius: 50%;
+}
+
+.effective-date {
+  background: var(--soft-mist);
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  font-size: 0.85rem;
+  color: var(--charcoal);
+  opacity: 0.7;
+  border-right: 3px solid var(--heritage-gold);
+}
+
+.footer-legal {
+  background: var(--charcoal);
+  color: var(--warm-ivory);
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  opacity: 0.5;
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <a href="index.html" class="back-link">← العودة للرئيسية</a>
+    <h1>سياسة الخصوصية</h1>
+    <p>Smart Hakim Technology — سمارت حكيم للتكنولوجيا</p>
+  </div>
+</header>
+
+<div class="container">
+  <div class="effective-date">
+    <strong>تاريخ السريان:</strong> 22 يوليو 2026 | <strong>آخر تحديث:</strong> 22 يوليو 2026
+  </div>
+
+  <div class="section-block">
+    <h2>1. مقدمة</h2>
+    <p>تُقدّر شركة سمارت حكيم للتكنولوجيا ("HAKIM" أو "نحن" أو "الشركة") خصوصيتك وتلتزم بحماية بياناتك الشخصية. تُوضح هذه السياسة كيفية جمعنا واستخدامنا وحمايتنا لمعلوماتك عند استخدامك لمواقعنا الإلكترونية وتطبيقاتنا وخدماتنا ("الخدمات").</p>
+    <p>باستخدامك لخدماتنا، فإنك توافق على ممارسات جمع واستخدام المعلومات الموضحة في هذه السياسة. إذا كنت لا توافق على أي جزء من هذه السياسة، يُرجى عدم استخدام خدماتنا.</p>
+  </div>
+
+  <div class="section-block">
+    <h2>2. البيانات التي نجمعها</h2>
+    <p>قد نجمع الأنواع التالية من البيانات:</p>
+    <ul>
+      <li><strong>بيانات الهوية:</strong> الاسم، البريد الإلكتروني، رقم الهاتف، معلومات الشركة (عند التسجيل).</li>
+      <li><strong>بيانات الاستخدام:</strong> كيفية تفاعلك مع خدماتنا، الصفحات التي تزورها، الميزات التي تستخدمها.</li>
+      <li><strong>بيانات الجهاز:</strong> نوع الجهاز، نظام التشغيل، نوع المتصفح، عنوان IP، معرف الجهاز.</li>
+      <li><strong>بيانات الموقع:</strong> الموقع الجغرافي التقريبي (عند استخدام خدمات تعتمد على الموقع مثل الرحّال).</li>
+      <li><strong>بيانات الدفع:</strong> معلومات الدفع عند شراء اشتراكات أو خدمات مدفوعة (نخزنها بشكل مشفّر).</li>
+      <li><strong>بيانات المحتوى:</strong> المستندات والبحوث والملفات التي تُرفع إلى أنظمتنا (مثل مُفكّر).</li>
+    </ul>
+  </div>
+
+  <div class="section-block">
+    <h2>3. كيفية استخدام البيانات</h2>
+    <p>نستخدم بياناتك للأغراض التالية:</p>
+    <ul>
+      <li>تقديم وتحسين خدماتنا وتخصيص تجربتك.</li>
+      <li>التواصل معك بشأن تحديثات، إشعارات، ودعم فني.</li>
+      <li>تحليل استخدام الخدمات لتحسين الأداء وتطوير ميزات جديدة.</li>
+      <li>الامتثال للالتزامات القانونية والتنظيمية في دولة الإمارات العربية المتحدة.</li>
+      <li>منع الاحتيال وحماية أمن أنظمتنا وخدماتنا.</li>
+      <li>إرسال رسائل تسويقية (بموافقتك الصريحة وقابلة للإلغاء في أي وقت).</li>
+    </ul>
+  </div>
+
+  <div class="section-block">
+    <h2>4. حماية البيانات والأمان</h2>
+    <p>نطبق إجراءات أمنية تقنية وتنظيمية مناسبة لحماية بياناتك من الوصول غير المصرح به، التعديل، الكشف، أو التدمير:</p>
+    <ul>
+      <li>تشفير البيانات أثناء النقل (SSL/TLS) وأثناء التخزين (AES-256).</li>
+      <li>جدران حماية ونظم كشف التسلل المستمر.</li>
+      <li>الوصول المحدود للبيانات الشخصية للموظفين المصرح لهم فقط.</li>
+      <li>مراجعات أمنية دورية واختبارات اختراق منتظمة.</li>
+      <li>نسخ احتياطية مشفّرة ومحمية.</li>
+    </ul>
+    <p>مع ذلك، لا يمكن ضمان أمان مطلق عبر الإنترنت، ونحثك على حماية بيانات اعتمادك (اسم المستخدم وكلمة المرور).</p>
+  </div>
+
+  <div class="section-block">
+    <h2>5. مشاركة البيانات مع أطراف ثالثة</h2>
+    <p>لا نبيع بياناتك الشخصية لأي طرف ثالث. قد نشارك بياناتك فقط في الحالات التالية:</p>
+    <ul>
+      <li><strong>مزودي الخدمات:</strong> شركات تقدم خدمات استضافة، تحليلات، دفع، ودعم فني نيابة عنا.</li>
+      <li><strong>الامتثال القانوني:</strong> عندما يكون ذلك مطلوبًا بموجب القانون أو أمر قضائي.</li>
+      <li><strong>حماية الحقوق:</strong> للدفاع عن حقوقنا أو ملكيتنا أو سلامة مستخدمينا.</li>
+      <li><strong>اندماج أو استحواذ:</strong> في حالة اندماج أو استحواذ على الشركة، مع إخطارك مسبقًا.</li>
+    </ul>
+    <p>جميع أطراف الثالثة ملزمة باتفاقيات سرية ولا يُسمح لهم باستخدام بياناتك لأغراضهم الخاصة.</p>
+  </div>
+
+  <div class="section-block">
+    <h2>6. ملفات تعريف الارتباط (Cookies)</h2>
+    <p>نستخدم ملفات تعريف الارتباط والتقنيات المشابهة لتحسين تجربتك:</p>
+    <ul>
+      <li><strong>ضرورية:</strong> للتشغيل الأساسي للموقع (تسجيل الدخول، الأمان).</li>
+      <li><strong>الأداء:</strong> لفهم كيفية استخدام الزوار للموقع وتحسين الأداء.</li>
+      <li><strong>الوظيفية:</strong> لتذكر تفضيلاتك (اللغة، الوضع المظلم).</li>
+      <li><strong>التحليلية:</strong> لتحليل سلوك المستخدم وتحسين المنتجات.</li>
+    </ul>
+    <p>يمكنك إدارة تفضيلات ملفات تعريف الارتباط من خلال إعدادات متصفحك.</p>
+  </div>
+
+  <div class="section-block">
+    <h2>7. حقوقك</h2>
+    <p>بموجب قوانين حماية البيانات المعمول بها في دولة الإمارات العربية المتحدة، لك الحقوق التالية:</p>
+    <ul>
+      <li><strong>الحق في الوصول:</strong> طلب نسخة من بياناتك الشخصية التي نحتفظ بها.</li>
+      <li><strong>الحق في التصحيح:</strong> تحديث أو تصحيح أي بيانات غير دقيقة.</li>
+      <li><strong>الحق في الحذف:</strong> طلب حذف بياناتك (مع مراعاة الالتزامات القانونية).</li>
+      <li><strong>الحق في الاعتراض:</strong> الاعتراض على معالجة بياناتك لأغراض تسويقية.</li>
+      <li><strong>الحق في نقل البيانات:</strong> الحصول على بياناتك في صيغة قابلة للقراءة آلياً.</li>
+      <li><strong>الحق في سحب الموافقة:</strong> سحب موافقتك على معالجة البيانات في أي وقت.</li>
+    </ul>
+    <p>لممارسة أي من هذه الحقوق، يُرجى التواصل معنا عبر البريد الإلكتروني: privacy@hakim.tech</p>
+  </div>
+
+  <div class="section-block">
+    <h2>8. الاحتفاظ بالبيانات</h2>
+    <p>نحتفظ ببياناتك الشخصية طالما كان ذلك ضروريًا للأغراض الموضحة في هذه السياسة، أو طالما كان ذلك مطلوبًا بموجب القانون:</p>
+    <ul>
+      <li>بيانات الحساب: طوال فترة استخدامك للخدمة + 12 شهرًا بعد الإلغاء.</li>
+      <li>بيانات المعاملات: 7 سنوات (متطلبات ضريبية وقانونية).</li>
+      <li>سجلات الأمان: 12 شهرًا.</li>
+      <li>بيانات التحليلات المجهولة: إلى أجل غير مسمى (لا تحتوي على معلومات تعريف شخصية).</li>
+    </ul>
+  </div>
+
+  <div class="section-block">
+    <h2>9. نقل البيانات الدولي</h2>
+    <p>بياناتك تُخزّن وتُعالج في خوادم تقع داخل دولة الإمارات العربية المتحدة. في حالات محدودة، قد نستخدم مزودي خدمات سحابية دوليين (مثل AWS أو Google Cloud) الذين يمتثلون لمعايير حماية البيانات الدولية. نضمن في جميع الحالات تطبيق مستويات حماية مكافئة لتلك المطبقة في الإمارات.</p>
+  </div>
+
+  <div class="section-block">
+    <h2>10. الخصوصية الخاصة بالأطفال</h2>
+    <p>خدماتنا غير موجهة للأشخاص دون سن 16 عامًا. لا نجمع بيانات شخصية عن قصد من الأطفال. إذا اكتشفنا أننا جمعنا بيانات من طفل دون 16 عامًا دون موافقة الوالدين، سنحذف هذه البيانات فورًا.</p>
+  </div>
+
+  <div class="section-block">
+    <h2>11. التعديلات على هذه السياسة</h2>
+    <p>قد نقوم بتحديث هذه السياسة من وقت لآخر. سيتم نشر أي تغييرات جوهرية على هذه الصفحة مع تاريخ التحديث. ننصحك بمراجعة هذه السياسة بشكل دوري. استمرارك في استخدام خدماتنا بعد نشر التعديلات يعني قبولك للتغييرات.</p>
+  </div>
+
+  <div class="section-block">
+    <h2>12. التواصل معنا</h2>
+    <p>إذا كان لديك أي استفسارات أو مخاوف بشأن هذه السياسة أو ممارسات الخصوصية لدينا، يُرجى التواصل معنا:</p>
+    <ul>
+      <li><strong>البريد الإلكتروني:</strong> privacy@hakim.tech</li>
+      <li><strong>الشركة:</strong> سمارت حكيم للتكنولوجيا (Smart Hakim Technology)</li>
+      <li><strong>الرخصة:</strong> 1639246 — دائرة الاقتصاد والسياحة بدبي</li>
+      <li><strong>العنوان:</strong> منطقة الورقاء — دبي، الإمارات العربية المتحدة</li>
+    </ul>
+  </div>
+</div>
+
+<footer class="footer-legal">
+  © 2026 Smart Hakim Technology. جميع الحقوق محفوظة. | مؤسسة فردية مهنية — دائرة الاقتصاد والسياحة بدبي
+</footer>
+
+</body>
+</html>
