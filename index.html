@@ -7,7 +7,7 @@
 <meta name="description" content="سمارت حكيم للتكنولوجيا — نحوّل الأفكار إلى منتجات رقمية ذكية">
 <!-- ===== Open Graph (Facebook, WhatsApp, Instagram, LinkedIn) ===== -->
 <meta property="og:title" content="حكيم | HAKIM — تقنية ذكية. حياة أسهل.">
-<meta property="og:description" content="نحوّل الأفكار إلى منتجات رقمية ذكية. اكتشف مُفكّر والرحّال وبوكي من Smart Hakim Technology - Dubai">
+<meta property="og:description" content="نحوّل الأفكار إلى منتجات رقمية ذكية. اكتشف مُفكّر والرحّال وبوكي وHAKIM WA BULK من Smart Hakim Technology - Dubai">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.hakim1.com/">
 <meta property="og:site_name" content="HAKIM Technology">
@@ -24,7 +24,7 @@
 <!-- ===== Twitter/X Cards ===== -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="حكيم | HAKIM — تقنية ذكية. حياة أسهل.">
-<meta name="twitter:description" content="نحوّل الأفكار إلى منتجات رقمية ذكية. اكتشف مُفكّر والرحّال وبوكي">
+<meta name="twitter:description" content="نحوّل الأفكار إلى منتجات رقمية ذكية. اكتشف مُفكّر والرحّال وبوكي وHAKIM WA BULK">
 <meta name="twitter:image" content="https://www.hakim1.com/prv.png">
 <meta name="twitter:image:alt" content="HAKIM Technology">
 
@@ -575,7 +575,7 @@ html.lenis, html.lenis body { height: auto; }
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 2rem;
 }
 @media (max-width: 900px) {
@@ -700,6 +700,36 @@ html.lenis, html.lenis body { height: auto; }
   color: var(--charcoal);
   opacity: 0.6;
 }
+
+
+/* WhatsApp sales product */
+.hero-product-shortcut {
+  display: inline-flex;
+  margin-top: 1.3rem;
+  color: var(--heritage-gold);
+  text-decoration: none;
+  font-size: 0.85rem;
+  line-height: 1.8;
+}
+.hero-product-shortcut:hover { text-decoration: underline; text-underline-offset: 5px; }
+.product-card-badge.bulk { background: rgba(12,73,56,0.1); color: var(--evergreen); }
+.bulk-shot {
+  background: linear-gradient(135deg, var(--deep-forest), var(--evergreen));
+  color: var(--warm-ivory);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  text-align: center;
+}
+.bulk-shot svg { width: 40px; height: 40px; fill: none; stroke: var(--heritage-gold); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.bulk-shot-title { font-family: 'Manrope', sans-serif; font-size: 20px; font-weight: 700; letter-spacing: 1px; }
+.bulk-shot-subtitle { font-size: 13px; opacity: .8; }
+.bulk-shot-steps { display: flex; align-items: center; gap: 9px; font-size: 12px; margin-top: 5px; }
+.bulk-shot-steps span { padding: 5px 9px; border: 1px solid rgba(201,148,77,.4); border-radius: 8px; }
+.bulk-shot-note { color: var(--heritage-gold); font-size: 11px; }
 
 /* ========== PRODUCT PREVIEW SECTIONS ========== */
 .preview-section {
@@ -1723,6 +1753,7 @@ body:hover .cursor-glow { opacity: 1; }
       <a href="#products" class="btn-primary">استكشف منتجاتنا</a>
       <a href="#contact" class="btn-secondary">ننجز مشروعك</a>
     </div>
+    <a href="https://bulk.hakim1.com/" class="hero-product-shortcut">جديد من حكيم: برنامج حملات واتساب للمبيعات ←</a>
   </div>
   <div class="hero-scroll">
     <span class="hero-scroll-text">SCROLL</span>
@@ -1735,10 +1766,12 @@ body:hover .cursor-glow { opacity: 1; }
   <div class="marquee-track">
     <span class="marquee-item">مُفكّر — نظام البحث العلمي</span>
     <span class="marquee-item">الرحّال — مخطط الرحلات الذكي</span>
+    <span class="marquee-item">HAKIM WA BULK — حملات واتساب للمبيعات</span>
     <span class="marquee-item">بوكي — إدارة المصاريف الجماعية</span>
     <span class="marquee-item">Hakim Risk Intelligence — قريبًا</span>
     <span class="marquee-item">مُفكّر — نظام البحث العلمي</span>
     <span class="marquee-item">الرحّال — مخطط الرحلات الذكي</span>
+    <span class="marquee-item">HAKIM WA BULK — حملات واتساب للمبيعات</span>
     <span class="marquee-item">بوكي — إدارة المصاريف الجماعية</span>
     <span class="marquee-item">Hakim Risk Intelligence — قريبًا</span>
   </div>
@@ -1793,7 +1826,7 @@ body:hover .cursor-glow { opacity: 1; }
     <div class="section-label reveal" style="justify-content:center;">منتجاتنا</div>
     <h2 class="section-title reveal">حلول ذكية لحياة أسهل</h2>
     <p class="section-desc reveal" style="margin:0 auto;">
-      ثلاثة منتجات مترابطة، كل منها يبسّط قراراتك في مجال مختلف — مدعومة بالذكاء الاصطناعي واللغة العربية
+      أربعة منتجات، من البحث والسفر إلى تنظيم حملات المبيعات — حلول عملية بتجربة عربية سهلة
     </p>
   </div>
   <div class="products-grid">
@@ -1918,6 +1951,32 @@ body:hover .cursor-glow { opacity: 1; }
         <a href="https://www.tryrahhal.com" target="_blank" class="product-card-link">
           زيارة الموقع →
         </a>
+      </div>
+    </div>
+
+    <!-- HAKIM WA BULK -->
+    <div class="product-card reveal" data-product="wa-bulk">
+      <div class="product-card-header">
+        <div class="product-screenshot bulk-shot">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 8h28v24H22l-12 8V8Z M17 16h14 M17 23h10"/></svg>
+          <div class="bulk-shot-title" lang="en" dir="ltr">HAKIM WA BULK</div>
+          <div class="bulk-shot-subtitle">تواصل أذكى. مبيعات أكثر تنظيمًا.</div>
+          <div class="bulk-shot-steps"><span>جهات الاتصال</span>←<span>الحملة</span>←<span>التقارير</span></div>
+          <div class="bulk-shot-note">برنامج Windows · بيانات حملات محلية</div>
+        </div>
+      </div>
+      <div class="product-card-body">
+        <span class="product-card-badge bulk">إصدار أولي متاح لويندوز</span>
+        <h3 class="product-card-title" lang="en">HAKIM WA BULK</h3>
+        <p class="product-card-sub">حملات واتساب لفِرق المبيعات — من حكيم</p>
+        <p class="product-card-desc">نظّم جهات اتصالك ورسائلك وحملات واتساب من جهازك. استورد قوائم العملاء، خصّص الرسائل، وتابع النتائج مع حفظ قاعدة بيانات الحملات محليًا.</p>
+        <ul class="product-card-features">
+          <li>استيراد جهات الاتصال من Excel وCSV</li>
+          <li>رسائل مخصّصة ومتابعة حالة الحملات</li>
+          <li>تقارير ونسخ احتياطية محلية</li>
+          <li>ملف EXE واحد للتثبيت على Windows</li>
+        </ul>
+        <a href="https://bulk.hakim1.com/" class="product-card-link">اكتشف البرنامج وتنزيله ←</a>
       </div>
     </div>
 
@@ -2194,7 +2253,7 @@ body:hover .cursor-glow { opacity: 1; }
 <section class="stats">
   <div class="stats-grid">
     <div class="stat-item reveal">
-      <div class="stat-number" data-count="2">0</div>
+      <div class="stat-number" data-count="3">0</div>
       <div class="stat-label">منتج حي</div>
     </div>
     <div class="stat-item reveal">
@@ -2266,6 +2325,7 @@ body:hover .cursor-glow { opacity: 1; }
       <ul class="footer-links">
         <li><a href="https://www.mufkir.com" target="_blank">مُفكّر</a></li>
         <li><a href="https://www.tryrahhal.com" target="_blank">الرحّال</a></li>
+        <li><a href="https://bulk.hakim1.com/">HAKIM WA BULK — حملات واتساب</a></li>
         <li><a href="#">بوكي (قريبًا)</a></li>
       </ul>
     </div>
@@ -2567,17 +2627,8 @@ function initHeroAnimations() {
   });
 
   // Product cards stagger
-  gsap.from('.product-card', {
-    scrollTrigger: {
-      trigger: '.products-grid',
-      start: 'top 80%'
-    },
-    y: 100,
-    opacity: 0,
-    duration: 0.9,
-    stagger: 0.12,
-    ease: 'power3.out'
-  });
+  // Each product already uses the .reveal animation above. A second opacity
+  // animation on the grid can leave cards hidden when they wrap onto new rows.
 
   // Product card hover tilt effect
   document.querySelectorAll('.product-card').forEach(card => {
